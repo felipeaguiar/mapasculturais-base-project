@@ -12,7 +12,7 @@ exit; # E APAGUE ESSA LINHA
 domain=(meumapa.gov.br)
 
 # Informe um e-mail válido
-email="webmaster@meumapa.gov.br"
+email="mapasculturaishomol.plainsoft.com.br"
 
 # EVITA que se atinja o LIMITE DE REQUESTS ao Let's Encrypt enquanto se testa as configurações
 # defina stagin=0 quando os testes passarem e execute novamente o script
