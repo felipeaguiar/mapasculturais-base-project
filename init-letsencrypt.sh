@@ -5,9 +5,6 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-echo "EDITE ESTE ARQUIVO E DEFINA AS VARIÁVEIS domain, email e staging"
-exit; # E APAGUE ESSA LINHA
-
 # Domínio da instalação
 domain=(mapasculturaishomol.plainsoft.com.br)
 
@@ -16,7 +13,7 @@ email="feliperdaguiar@gmail.com"
 
 # EVITA que se atinja o LIMITE DE REQUESTS ao Let's Encrypt enquanto se testa as configurações
 # defina stagin=0 quando os testes passarem e execute novamente o script
-staging=1 
+staging=0
 
 data_path="./docker-data/certbot"
 rsa_key_size=4096
