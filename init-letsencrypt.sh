@@ -6,7 +6,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 fi
 
 # Domínio da instalação
-domain=(mapasculturaishomol.plainsoft.com.br)
+domain="mapasculturaishomol.plainsoft.com.br"
 
 # Informe um e-mail válido
 email="feliperdaguiar@gmail.com"
