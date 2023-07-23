@@ -9,14 +9,14 @@ echo "EDITE ESTE ARQUIVO E DEFINA AS VARIÁVEIS domain, email e staging"
 exit; # E APAGUE ESSA LINHA
 
 # Domínio da instalação
-domain=(meumapa.gov.br)
+domain=(mapasculturaishomol.plainsoft.com.br)
 
 # Informe um e-mail válido
-email="mapasculturaishomol.plainsoft.com.br"
+email="feliperdaguiar@gmail.com"
 
 # EVITA que se atinja o LIMITE DE REQUESTS ao Let's Encrypt enquanto se testa as configurações
 # defina stagin=0 quando os testes passarem e execute novamente o script
-staging=0
+staging=1 
 
 data_path="./docker-data/certbot"
 rsa_key_size=4096
