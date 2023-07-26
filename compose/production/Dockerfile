@@ -10,7 +10,7 @@ COPY plugins /var/www/html/protected/application/plugins
 RUN chown -R www-data:www-data /var/www
 
 WORKDIR /var/www
-RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client && docker-php-ext-install mcrypt pdo_mysql
+RUN apt-get update && apt-get install -y libmcrypt-dev && docker-php-ext-install mcrypt
 ADD . /var/www
 RUN chown -R www-data:www-data /var/www
 
