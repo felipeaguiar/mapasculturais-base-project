@@ -6,3 +6,10 @@ COPY compose/production/config.d /var/www/html/protected/application/conf/config
 
 COPY themes /var/www/html/protected/application/themes
 COPY plugins /var/www/html/protected/application/plugins
+
+ARG UNAME=www-data
+ARG UGROUP=www-data
+ARG UID=1000
+ARG GID=1001
+RUN usermod  --uid $UID $UNAME
+RUN groupmod --gid $GID $UGROUP
