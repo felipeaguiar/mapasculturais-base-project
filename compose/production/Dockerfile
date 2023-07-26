@@ -8,3 +8,10 @@ COPY themes /var/www/html/protected/application/themes
 COPY plugins /var/www/html/protected/application/plugins
 
 RUN chown -R www-data:www-data /var/www
+
+WORKDIR /var/www
+RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client && docker-php-ext-install mcrypt pdo_mysql
+ADD . /var/www
+RUN chown -R www-data:www-data /var/www
+
+WORKDIR /var/www/html
