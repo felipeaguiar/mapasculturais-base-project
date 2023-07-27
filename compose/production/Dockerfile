@@ -9,5 +9,8 @@ COPY plugins /var/www/html/protected/application/plugins
 
 RUN chown -R www-data:www-data /var/www/html
 
+WORKDIR /var/www/src
+
+RUN pnpm install --recursive && pnpm run build 
 
 WORKDIR /var/www/html
