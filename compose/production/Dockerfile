@@ -17,7 +17,9 @@ RUN git clone https://github.com/Leaflet/Leaflet.markercluster Leaflet.markerclu
 
 WORKDIR /var/www/src
 
-ENV SHELL bash
+ENV SHELL=bash
+ENV PNPM_HOME=/root/.local/share/pnpm
+ENV PATH="/root/.local/share/pnpm:${PATH}"
 
 RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
 RUN source /root/.bashrc
