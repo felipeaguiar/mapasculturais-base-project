@@ -1,4 +1,4 @@
-FROM hacklab/mapasculturais:latest
+FROM hacklab/mapasculturais:v5.7.1
 
 COPY compose/common/config.php /var/www/html/protected/application/conf/config.php
 COPY compose/common/config.d /var/www/html/protected/application/conf/conf-common.d
@@ -7,20 +7,26 @@ COPY compose/production/config.d /var/www/html/protected/application/conf/config
 COPY themes /var/www/html/protected/application/themes
 COPY plugins /var/www/html/protected/application/plugins
 
-RUN chown -R www-data:www-data /var/www/html
-RUN chown -R www-data:www-data /var/www/src
+WORKDIR /var/www/src /var/www/html/protected/application/themes/BaseV1/assets/vendor/leaflet/lib/leaflet-plugins-updated-2014-07-25
+
+RUN rm -rf Leaflet.label-master
+RUN rm -rf Leaflet.markercluster-master
+
+RUN git clone https://github.com/Leaflet/Leaflet.label.git Leaflet.label-master
+RUN git clone https://github.com/Leaflet/Leaflet.markercluster Leaflet.markercluster-master
 
 WORKDIR /var/www/src
 
-# RUN pnpm install --recursive && pnpm run build 
+RUN export SHELL=bash
+RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
+RUN source /root/.bashrc
 
-RUN curl -fsSL https://get.pnpm.io/install.sh | bash -
-RUN export PNPM_HOME=/root/.local/share/pnpm
-RUN export PATH=$PATH:/root/.local/share/pnpm
+RUN npm i -g jake
 
-RUN /root/.local/share/pnpm/pnpm config set script-shell "/usr/bin/bash"
+RUN pnpm install --recursive
+RUN pnpm run build
 
-RUN /root/.local/share/pnpm/pnpm install --recursive
-RUN /root/.local/share/pnpm/pnpm run build
+RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/src
 
 WORKDIR /var/www/html
