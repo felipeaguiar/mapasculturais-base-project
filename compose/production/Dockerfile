@@ -22,7 +22,6 @@ ENV PNPM_HOME=/root/.local/share/pnpm
 ENV PATH="/root/.local/share/pnpm:${PATH}"
 
 RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
-RUN source /root/.bashrc
 
 RUN npm i -g jake
 
