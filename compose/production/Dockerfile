@@ -8,6 +8,7 @@ COPY themes /var/www/html/protected/application/themes
 COPY plugins /var/www/html/protected/application/plugins
 
 RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/src
 
 WORKDIR /var/www/src
 
