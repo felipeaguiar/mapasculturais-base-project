@@ -4,7 +4,7 @@ COPY compose/common/config.php /var/www/html/protected/application/conf/config.p
 COPY compose/common/config.d /var/www/html/protected/application/conf/conf-common.d
 COPY compose/production/config.d /var/www/html/protected/application/conf/config.d
 
-COPY themes /var/www/html/protected/application/themes
+# COPY themes /var/www/html/protected/application/themes
 COPY plugins /var/www/html/protected/application/plugins
 
 # WORKDIR /var/www/html/protected/application/themes/BaseV1/assets/vendor/leaflet/lib/leaflet-plugins-updated-2014-07-25
@@ -15,22 +15,22 @@ COPY plugins /var/www/html/protected/application/plugins
 # RUN git clone https://github.com/Leaflet/Leaflet.label.git Leaflet.label-master
 # RUN git clone https://github.com/Leaflet/Leaflet.markercluster Leaflet.markercluster-master
 
-WORKDIR /var/www/src
+# WORKDIR /var/www/src
 
-# ENV SHELL=bash
-# ENV PNPM_HOME=/root/.local/share/pnpm
-# ENV PATH="/root/.local/share/pnpm:${PATH}"
+# # ENV SHELL=bash
+# # ENV PNPM_HOME=/root/.local/share/pnpm
+# # ENV PATH="/root/.local/share/pnpm:${PATH}"
 
-# RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
+# # RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
 
-WORKDIR /var/www/src
+# WORKDIR /var/www/src
 
-RUN npx pnpm@6 install --global pnpm@6
+# RUN npx pnpm@6 install --global pnpm@6
 
-RUN npm i -g jake
+# RUN npm i -g jake
 
-RUN pwd
-RUN pnpm install --recursive && pnpm run build
+# RUN pwd
+# RUN pnpm install --recursive && pnpm run build
 
 RUN chown -R www-data:www-data /var/www/html
 RUN chown -R www-data:www-data /var/www/src
