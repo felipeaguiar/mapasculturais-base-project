@@ -17,12 +17,12 @@ WORKDIR /var/www/html/protected/application/themes/BaseV1/assets/vendor/leaflet/
 
 WORKDIR /var/www/src
 
-# RUN npx pnpm@6 install --global pnpm@6
+RUN npx pnpm@6 install --global pnpm@6
 
-# RUN npm i -g jake
+RUN npm i -g jake
 
-# RUN pwd
-# RUN pnpm install --recursive && pnpm run build
+RUN pwd
+RUN pnpm install --recursive && pnpm run build
 
 RUN chown -R www-data:www-data /var/www/html
 RUN chown -R www-data:www-data /var/www/src
